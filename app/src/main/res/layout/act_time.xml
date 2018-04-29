@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@color/bg_function"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tv_current_date"
+            android:layout_width="0dp"
+            android:padding="6dp"
+
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:textSize="16sp"/>
+        <TextView
+            android:id="@+id/tv_start_time"
+            android:layout_width="0dp"
+            android:padding="6dp"
+            android:lineSpacingMultiplier="1.3"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/tv_end_time"
+            android:layout_width="0dp"
+            android:padding="6dp"
+            android:textColor="@color/white"
+            android:lineSpacingMultiplier="1.3"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="12sp"/>
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recycler_view"/>
+
+</LinearLayout>

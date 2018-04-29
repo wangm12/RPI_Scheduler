@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_list_item"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="0dp"
+        android:layout_weight="0.8"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        android:gravity="center_vertical"
+        android:lineSpacingMultiplier="1.3"
+        android:textColor="@color/grey_800"
+        android:textSize="12sp"
+        android:layout_marginEnd="8dp" />
+
+    <TextView
+        android:id="@+id/tv_location"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:layout_weight="1"
+        android:focusable="true"
+        android:gravity="center_vertical"
+        android:textColor="@color/grey_800"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_event_name"
+        android:focusable="true"
+        android:layout_width="0dp"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_weight="1.5"
+        android:gravity="center_vertical"
+        android:textColor="@color/grey_800"
+        android:textSize="12sp" />
+</LinearLayout>

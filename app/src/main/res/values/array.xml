@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="array_87_gym">
+        <item>East Gym</item>
+        <item>West Gym</item>
+    </string-array>
+
+    <string-array name="array_academy_hall">
+        <item>Auditorium</item>
+        <item>Dance Studio</item>
+    </string-array>
+
+    <string-array name="array_armory">
+        <item>Basement</item>
+        <item>Court 1</item>
+        <item>Court 2</item>
+        <item>Court 3</item>
+        <item>Track</item>
+        <item>Robison Pool - Diving</item>
+        <item>Robison Pool - Swimming</item>
+    </string-array>
+
+    <string-array name="array_student_union">
+        <item>3202</item>
+        <item>3510</item>
+        <item>3511</item>
+        <item>Elsworth</item>
+        <item>Games Room</item>
+        <item>McNeil Room</item>
+        <item>Mother's</item>
+        <item>Piano Room 2610</item>
+    </string-array>
+
+    <string-array name="array_athletic_fields">
+        <item>Anderson Field</item>
+        <item>Harkness Field</item>
+        <item>Harkness Track</item>
+        <item>Lower Renwyck Grass Field</item>
+        <item>Lower Renwyck Turf Field</item>
+        <item>Upper Renwyck Grass Field</item>
+        <item>Robison Baseball Field</item>
+        <item>Robison Softball Field</item>
+    </string-array>
+
+    <string-array name="array_ecav">
+        <item>Main Gym</item>
+        <item>Practice Gym</item>
+    </string-array>
+
+    <string-array name="array_muller_center">
+        <item>Classroom</item>
+        <item>Multipurpose Room 1</item>
+        <item>Multipurpose Room 2</item>
+        <item>Multipurpose Room 3</item>
+    </string-array>
+
+    <string-array name="array_playhouse">
+        <item>Auditorium</item>
+        <item>Building</item>
+        <item>Lounge</item>
+        <item>Concourse Table 1</item>
+        <item>Concourse Table 2</item>
+        <item>Concourse Table 3</item>
+        <item>Concourse Table 4</item>
+    </string-array>
+</resources>

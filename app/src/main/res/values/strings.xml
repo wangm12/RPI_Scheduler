@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Scheduler</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_date">Select Date</string>
+    <string name="monday">M</string>
+    <string name="tuesday">T</string>
+    <string name="wednesday">W</string>
+    <string name="thursday">M</string>
+    <string name="friday">F</string>
+    <string name="saturday">S</string>
+    <string name="sunday">S</string>
+    <string name="ss"><![CDATA[Track & Field Varsity Practice]]></string>
+    <string name="time_date"><![CDATA[Time & Date]]></string>
+    <string name="sdf"><![CDATA[RPI Track & Field]]></string>
+    <string name="events_name">Events Name</string>
+    <string name="location">Location</string>
+    <string name="group">Group</string>
+    <string name="events_coordinator">Events Coordinator</string>
+    <string name="unknown">UNKNOWN</string>
+</resources>
