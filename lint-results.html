@@ -1,0 +1,1744 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Lint Report</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+ <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.blue-indigo.min.css" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+<script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
+<style>
+section.section--center {
+    max-width: 860px;
+}
+.mdl-card__supporting-text + .mdl-card__actions {
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+main > .mdl-layout__tab-panel {
+  padding: 8px;
+  padding-top: 48px;
+}
+
+.mdl-card__actions {
+    margin: 0;
+    padding: 4px 40px;
+    color: inherit;
+}
+.mdl-card > * {
+    height: auto;
+}
+.mdl-card__actions a {
+    color: #00BCD4;
+    margin: 0;
+}
+.error-icon {
+    color: #bb7777;
+    vertical-align: bottom;
+}
+.warning-icon {
+    vertical-align: bottom;
+}
+.mdl-layout__content section:not(:last-of-type) {
+  position: relative;
+  margin-bottom: 48px;
+}
+
+.mdl-card .mdl-card__supporting-text {
+  margin: 40px;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding: 0;
+  color: inherit;
+  width: calc(100% - 80px);
+}
+div.mdl-layout__drawer-button .material-icons {
+    line-height: 48px;
+}
+.mdl-card .mdl-card__supporting-text {
+    margin-top: 0px;
+}
+.chips {
+    float: right;
+    vertical-align: middle;
+}
+pre.errorlines {
+    background-color: white;
+    font-family: monospace;
+    border: 1px solid #e0e0e0;
+    line-height: 0.9rem;
+    font-size: 0.9rem;    padding: 1px 0px 1px; 1px;
+    overflow: scroll;
+}
+.prefix {
+    color: #660e7a;
+    font-weight: bold;
+}
+.attribute {
+    color: #0000ff;
+    font-weight: bold;
+}
+.value {
+    color: #008000;
+    font-weight: bold;
+}
+.tag {
+    color: #000080;
+    font-weight: bold;
+}
+.comment {
+    color: #808080;
+    font-style: italic;
+}
+.javadoc {
+    color: #808080;
+    font-style: italic;
+}
+.annotation {
+    color: #808000;
+}
+.string {
+    color: #008000;
+    font-weight: bold;
+}
+.number {
+    color: #0000ff;
+}
+.keyword {
+    color: #000080;
+    font-weight: bold;
+}
+.caretline {
+    background-color: #fffae3;
+}
+.lineno {
+    color: #999999;
+    background-color: #f0f0f0;
+}
+.error {
+    display: inline-block;
+    position:relative;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4AwCFR4T/3uLMgAAADxJREFUCNdNyLERQEAABMCjL4lQwIzcjErpguAL+C9AvgKJDbeD/PRpLdm35Hm+MU+cB+tCKaJW4L4YBy+CAiLJrFs9mgAAAABJRU5ErkJggg==) bottom repeat-x;
+}
+.warning {
+    text-decoration: none;
+    background-color: #f6ebbc;
+}
+.overview {
+    padding: 10pt;
+    width: 100%;
+    overflow: auto;
+    border-collapse:collapse;
+}
+.overview tr {
+    border-bottom: solid 1px #eeeeee;
+}
+.categoryColumn a {
+     text-decoration: none;
+     color: inherit;
+}
+.countColumn {
+    text-align: right;
+    padding-right: 20px;
+    width: 50px;
+}
+.issueColumn {
+   padding-left: 16px;
+}
+.categoryColumn {
+   position: relative;
+   left: -50px;
+   padding-top: 20px;
+   padding-bottom: 5px;
+}
+</style>
+<script language="javascript" type="text/javascript"> 
+<!--
+function reveal(id) {
+if (document.getElementById) {
+document.getElementById(id).style.display = 'block';
+document.getElementById(id+'Link').style.display = 'none';
+}
+}
+function hideid(id) {
+if (document.getElementById) {
+document.getElementById(id).style.display = 'none';
+}
+}
+//--> 
+</script>
+</head>
+<body class="mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Lint Report: 1 error and 292 warnings</span>
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+Check performed at Sun Apr 29 18:42:10 EDT 2018      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Issue Types</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="#overview"><i class="material-icons">dashboard</i>Overview</a>
+      <a class="mdl-navigation__link" href="#GradleCompatible"><i class="material-icons error-icon">error</i>Incompatible Gradle Versions (1)</a>
+      <a class="mdl-navigation__link" href="#StateListReachable"><i class="material-icons warning-icon">warning</i>Unreachable state in a <code>&lt;selector></code> (1)</a>
+      <a class="mdl-navigation__link" href="#AllowBackup"><i class="material-icons warning-icon">warning</i>AllowBackup/FullBackupContent Problems (1)</a>
+      <a class="mdl-navigation__link" href="#UnusedResources"><i class="material-icons warning-icon">warning</i>Unused resources (269)</a>
+      <a class="mdl-navigation__link" href="#UnusedNamespace"><i class="material-icons warning-icon">warning</i>Unused namespace (3)</a>
+      <a class="mdl-navigation__link" href="#IconDensities"><i class="material-icons warning-icon">warning</i>Icon densities validation (1)</a>
+      <a class="mdl-navigation__link" href="#IconMissingDensityFolder"><i class="material-icons warning-icon">warning</i>Missing density folder (1)</a>
+      <a class="mdl-navigation__link" href="#SmallSp"><i class="material-icons warning-icon">warning</i>Text size is too small (3)</a>
+      <a class="mdl-navigation__link" href="#ContentDescription"><i class="material-icons warning-icon">warning</i>Image without <code>contentDescription</code> (1)</a>
+      <a class="mdl-navigation__link" href="#HardcodedText"><i class="material-icons warning-icon">warning</i>Hardcoded text (8)</a>
+      <a class="mdl-navigation__link" href="#RtlSymmetry"><i class="material-icons warning-icon">warning</i>Padding and margin symmetry (1)</a>
+      <a class="mdl-navigation__link" href="#RtlHardcoded"><i class="material-icons warning-icon">warning</i>Using left/right instead of start/end attributes (3)</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="mdl-layout__tab-panel is-active">
+<a name="overview"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="OverviewCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Overview</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<table class="overview">
+<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Correctness">Correctness</a>
+</td></tr>
+<tr>
+<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons error-icon">error</i>
+<a href="#GradleCompatible">GradleCompatible</a>: Incompatible Gradle Versions</td></tr>
+<tr>
+<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#StateListReachable">StateListReachable</a>: Unreachable state in a <code>&lt;selector></code></td></tr>
+<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Security">Security</a>
+</td></tr>
+<tr>
+<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#AllowBackup">AllowBackup</a>: AllowBackup/FullBackupContent Problems</td></tr>
+<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Performance">Performance</a>
+</td></tr>
+<tr>
+<td class="countColumn">269</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#UnusedResources">UnusedResources</a>: Unused resources</td></tr>
+<tr>
+<td class="countColumn">3</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#UnusedNamespace">UnusedNamespace</a>: Unused namespace</td></tr>
+<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Usability:Icons">Usability:Icons</a>
+</td></tr>
+<tr>
+<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#IconDensities">IconDensities</a>: Icon densities validation</td></tr>
+<tr>
+<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#IconMissingDensityFolder">IconMissingDensityFolder</a>: Missing density folder</td></tr>
+<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Usability">Usability</a>
+</td></tr>
+<tr>
+<td class="countColumn">3</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#SmallSp">SmallSp</a>: Text size is too small</td></tr>
+<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Accessibility">Accessibility</a>
+</td></tr>
+<tr>
+<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#ContentDescription">ContentDescription</a>: Image without <code>contentDescription</code></td></tr>
+<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Internationalization">Internationalization</a>
+</td></tr>
+<tr>
+<td class="countColumn">8</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#HardcodedText">HardcodedText</a>: Hardcoded text</td></tr>
+<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Internationalization:Bidirectional Text">Internationalization:Bidirectional Text</a>
+</td></tr>
+<tr>
+<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#RtlSymmetry">RtlSymmetry</a>: Padding and margin symmetry</td></tr>
+<tr>
+<td class="countColumn">3</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#RtlHardcoded">RtlHardcoded</a>: Using left/right instead of start/end attributes</td></tr>
+<tr><td></td><td class="categoryColumn"><a href="#MissingIssues">Disabled Checks (23)</a>
+</td></tr></table>
+<br/>              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="OverviewCardLink" onclick="hideid('OverviewCard');">
+Dismiss</button>            </div>
+            </div>
+          </section>
+<a name="Correctness"></a>
+<a name="GradleCompatible"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="GradleCompatibleCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Incompatible Gradle Versions</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../build.gradle">../../build.gradle</a></span>: <span class="message">All com.android.support libraries must use the exact same version specification (mixing versions can lead to runtime crashes). Found versions 27.1.1, 27.1.0. Examples include <code>com.android.support:animated-vector-drawable:27.1.1</code> and <code>com.android.support:exifinterface:27.1.0</code></span><br />
+</div>
+<div class="metadata"><div class="explanation" id="explanationGradleCompatible" style="display: none;">
+There are some combinations of libraries, or tools and libraries, that are incompatible, or can lead to bugs. One such incompatibility is compiling with a version of the Android support libraries that is not the latest version (or in particular, a version lower than your <code>targetSdkVersion</code>).<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "GradleCompatible" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">GradleCompatible</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Correctness</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Fatal</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 8/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationGradleCompatibleLink" onclick="reveal('explanationGradleCompatible');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="GradleCompatibleCardLink" onclick="hideid('GradleCompatibleCard');">
+Dismiss</button>            </div>
+            </div>
+          </section><a name="StateListReachable"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="StateListReachableCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Unreachable state in a &lt;selector></h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/res/drawable/bg_list_item.xml">../../src/main/res/drawable/bg_list_item.xml</a>:8</span>: <span class="message">This item is unreachable because a previous item (item #1) is a more general match than this one</span><br /><pre class="errorlines">
+<span class="lineno">  5 </span>            <span class="tag">&lt;solid</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">color</span>=<span class="value">"@color/grey_100"</span>/>
+<span class="lineno">  6 </span>        <span class="tag">&lt;/shape></span>
+<span class="lineno">  7 </span>    <span class="tag">&lt;/item></span>
+<span class="caretline"><span class="lineno">  8 </span>    <span class="warning"><span class="tag">&lt;item</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">state_pressed</span>=<span class="value">"true"</span>></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  9 </span>        <span class="tag">&lt;shape</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">shape</span>=<span class="value">"rectangle"</span>>
+<span class="lineno"> 10 </span>            <span class="tag">&lt;solid</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">color</span>=<span class="value">"@color/white"</span>/>
+<span class="lineno"> 11 </span>        <span class="tag">&lt;/shape></span></pre>
+
+<ul><span class="location"><a href="../../src/main/res/drawable/bg_list_item.xml">../../src/main/res/drawable/bg_list_item.xml</a>:3</span>: <span class="message">Earlier item which masks item</span><br /><pre class="errorlines">
+<span class="lineno">  1 </span><span class="prologue">&lt;?xml version="1.0" encoding="utf-8"?></span>
+<span class="lineno">  2 </span><span class="tag">&lt;selector</span><span class="attribute"> </span><span class="prefix">xmlns:</span><span class="attribute">android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>>
+<span class="caretline"><span class="lineno">  3 </span>    <span class="warning"><span class="tag">&lt;item</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">state_pressed</span>=<span class="value">"true"</span>></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  4 </span>        <span class="tag">&lt;shape</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">shape</span>=<span class="value">"rectangle"</span>>
+<span class="lineno">  5 </span>            <span class="tag">&lt;solid</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">color</span>=<span class="value">"@color/grey_100"</span>/>
+<span class="lineno">  6 </span>        <span class="tag">&lt;/shape></span></pre>
+</ul></div>
+<div class="metadata"><div class="explanation" id="explanationStateListReachable" style="display: none;">
+In a selector, only the last child in the state list should omit a state qualifier. If not, all subsequent items in the list will be ignored since the given item will match all.<br/>To suppress this error, use the issue id "StateListReachable" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">StateListReachable</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Correctness</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 5/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationStateListReachableLink" onclick="reveal('explanationStateListReachable');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="StateListReachableCardLink" onclick="hideid('StateListReachableCard');">
+Dismiss</button>            </div>
+            </div>
+          </section>
+<a name="Security"></a>
+<a name="AllowBackup"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="AllowBackupCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">AllowBackup/FullBackupContent Problems</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/AndroidManifest.xml">../../src/main/AndroidManifest.xml</a>:6</span>: <span class="message">On SDK version 23 and up, your app data will be automatically backed up and restored on app install. Consider adding the attribute <code>android:fullBackupContent</code> to specify an <code>@xml</code> resource which configures which files to backup. More info: <a href="https://developer.android.com/training/backup/autosyncapi.html">https://developer.android.com/training/backup/autosyncapi.html</a></span><br /><pre class="errorlines">
+<span class="lineno">  3 </span>    <span class="prefix">xmlns:</span><span class="attribute">tools</span>=<span class="value">"http://schemas.android.com/tools"</span>
+<span class="lineno">  4 </span>    <span class="attribute">package</span>=<span class="value">"com.envision.scheduler"</span>>
+<span class="lineno">  5 </span>
+<span class="caretline"><span class="lineno">  6 </span>    <span class="warning"><span class="tag">&lt;application</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="attribute">
+</span><span class="lineno">  7 </span><span class="attribute">        </span><span class="prefix">android:</span><span class="attribute">icon</span>=<span class="value">"@mipmap/ic_launcher"</span>
+<span class="lineno">  8 </span>        <span class="prefix">android:</span><span class="attribute">label</span>=<span class="value">"@string/app_name"</span>
+<span class="lineno">  9 </span>        <span class="prefix">android:</span><span class="attribute">roundIcon</span>=<span class="value">"@mipmap/ic_launcher_round"</span></pre>
+
+</div>
+<div class="metadata"><div class="explanation" id="explanationAllowBackup" style="display: none;">
+The <code>allowBackup</code> attribute determines if an application's data can be backed up and restored. It is documented at <a href="http://developer.android.com/reference/android/R.attr.html#allowBackup">http://developer.android.com/reference/android/R.attr.html#allowBackup</a><br/>
+<br/>
+By default, this flag is set to <code>true</code>. When this flag is set to <code>true</code>, application data can be backed up and restored by the user using <code>adb backup</code> and <code>adb restore</code>.<br/>
+<br/>
+This may have security consequences for an application. <code>adb backup</code> allows users who have enabled USB debugging to copy application data off of the device. Once backed up, all application data can be read by the user. <code>adb restore</code> allows creation of application data from a source specified by the user. Following a restore, applications should not assume that the data, file permissions, and directory permissions were created by the application itself.<br/>
+<br/>
+Setting <code>allowBackup="false"</code> opts an application out of both backup and restore.<br/>
+<br/>
+To fix this warning, decide whether your application should support backup, and explicitly set <code>android:allowBackup=(true|false)"</code>.<br/>
+<br/>
+If not set to false, and if targeting API 23 or later, lint will also warn that you should set <code>android:fullBackupContent</code> to configure auto backup.<br/><div class="moreinfo">More info: <ul><li><a href="https://developer.android.com/training/backup/autosyncapi.html">https://developer.android.com/training/backup/autosyncapi.html</a>
+<li><a href="http://developer.android.com/reference/android/R.attr.html#allowBackup">http://developer.android.com/reference/android/R.attr.html#allowBackup</a>
+</ul></div>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "AllowBackup" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">AllowBackup</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Security</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 3/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationAllowBackupLink" onclick="reveal('explanationAllowBackup');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="AllowBackupCardLink" onclick="hideid('AllowBackupCard');">
+Dismiss</button>            </div>
+            </div>
+          </section>
+<a name="Performance"></a>
+<a name="UnusedResources"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="UnusedResourcesCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Unused resources</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/res/drawable/bg_home_item.xml">../../src/main/res/drawable/bg_home_item.xml</a>:2</span>: <span class="message">The resource <code>R.drawable.bg_home_item</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno"> 1 </span><span class="prologue">&lt;?xml version="1.0" encoding="utf-8"?></span>
+<span class="caretline"><span class="lineno"> 2 </span><span class="warning"><span class="tag">&lt;selector</span><span class="attribute"> </span><span class="prefix">xmlns:</span><span class="attribute">android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 3 </span>
+<span class="lineno"> 4 </span>    <span class="tag">&lt;item</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">state_pressed</span>=<span class="value">"true"</span> <span class="prefix">android:</span><span class="attribute">drawable</span>=<span class="value">"@drawable/bg_home_item_p"</span>/>
+<span class="lineno"> 5 </span>    <span class="tag">&lt;item</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">drawable</span>=<span class="value">"@drawable/bg_home_item_n"</span>/>
+</pre>
+
+<span class="location"><a href="../../src/main/res/drawable-xhdpi/bg_home_item_p.9.png">../../src/main/res/drawable-xhdpi/bg_home_item_p.9.png</a></span>: <img class="embedimage" align="right" src="../../src/main/res/drawable-xhdpi/bg_home_item_p.9.png" /><span class="message">The resource <code>R.drawable.bg_home_item_p</code> appears to be unused</span><br clear="right"/>
+<span class="location"><a href="../../src/main/res/drawable/bg_spinner.xml">../../src/main/res/drawable/bg_spinner.xml</a>:2</span>: <span class="message">The resource <code>R.drawable.bg_spinner</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  1 </span><span class="prologue">&lt;?xml version="1.0" encoding="utf-8"?></span>
+<span class="caretline"><span class="lineno">  2 </span><span class="warning"><span class="tag">&lt;selector</span><span class="attribute"> </span><span class="prefix">xmlns:</span><span class="attribute">android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  3 </span>
+<span class="lineno">  4 </span>    <span class="tag">&lt;item</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">state_pressed</span>=<span class="value">"true"</span>>
+<span class="lineno">  5 </span>        <span class="tag">&lt;shape</span><span class="attribute"> </span><span class="prefix">android:</span><span class="attribute">shape</span>=<span class="value">"rectangle"</span>>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:8</span>: <span class="message">The resource <code>R.color.event_color_01</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">   5 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"colorAccent"</span>>#efff40<span class="tag">&lt;/color></span>
+<span class="lineno">   6 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"bg_function"</span>>#7D58BF<span class="tag">&lt;/color></span>
+<span class="lineno">   7 </span>
+<span class="caretline"><span class="lineno">   8 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"event_color_01"</span></span>>#59dbe0<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">   9 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"event_color_02"</span>>#f57f68<span class="tag">&lt;/color></span>
+<span class="lineno">  10 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"event_color_03"</span>>#87d288<span class="tag">&lt;/color></span>
+<span class="lineno">  11 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"event_color_04"</span>>#f8b552<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:9</span>: <span class="message">The resource <code>R.color.event_color_02</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">   6 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"bg_function"</span>>#7D58BF<span class="tag">&lt;/color></span>
+<span class="lineno">   7 </span>
+<span class="lineno">   8 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"event_color_01"</span>>#59dbe0<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">   9 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"event_color_02"</span></span>>#f57f68<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  10 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"event_color_03"</span>>#87d288<span class="tag">&lt;/color></span>
+<span class="lineno">  11 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"event_color_04"</span>>#f8b552<span class="tag">&lt;/color></span>
+<span class="lineno">  12 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"toolbar"</span>>#efefef<span class="tag">&lt;/color></span></pre>
+
+<button class="mdl-button mdl-js-button mdl-button--primary" id="UnusedResourcesDivLink" onclick="reveal('UnusedResourcesDiv');" />+ 264 More Occurrences...</button>
+<div id="UnusedResourcesDiv" style="display: none">
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:10</span>: <span class="message">The resource <code>R.color.event_color_03</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">   7 </span>
+<span class="lineno">   8 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"event_color_01"</span>>#59dbe0<span class="tag">&lt;/color></span>
+<span class="lineno">   9 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"event_color_02"</span>>#f57f68<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  10 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"event_color_03"</span></span>>#87d288<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  11 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"event_color_04"</span>>#f8b552<span class="tag">&lt;/color></span>
+<span class="lineno">  12 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"toolbar"</span>>#efefef<span class="tag">&lt;/color></span>
+<span class="lineno">  13 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"toolbar_text"</span>>#8f000000<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:11</span>: <span class="message">The resource <code>R.color.event_color_04</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">   8 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"event_color_01"</span>>#59dbe0<span class="tag">&lt;/color></span>
+<span class="lineno">   9 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"event_color_02"</span>>#f57f68<span class="tag">&lt;/color></span>
+<span class="lineno">  10 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"event_color_03"</span>>#87d288<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  11 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"event_color_04"</span></span>>#f8b552<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  12 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"toolbar"</span>>#efefef<span class="tag">&lt;/color></span>
+<span class="lineno">  13 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"toolbar_text"</span>>#8f000000<span class="tag">&lt;/color></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:15</span>: <span class="message">The resource <code>R.color.black</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  12 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"toolbar"</span>>#efefef<span class="tag">&lt;/color></span>
+<span class="lineno">  13 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"toolbar_text"</span>>#8f000000<span class="tag">&lt;/color></span>
+<span class="lineno">  14 </span>
+<span class="caretline"><span class="lineno">  15 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"black"</span></span>>@android:color/black<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  16 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"white"</span>>@android:color/white<span class="tag">&lt;/color></span>
+<span class="lineno">  17 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"transparent"</span>>@android:color/transparent<span class="tag">&lt;/color></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:17</span>: <span class="message">The resource <code>R.color.transparent</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  14 </span>
+<span class="lineno">  15 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"black"</span>>@android:color/black<span class="tag">&lt;/color></span>
+<span class="lineno">  16 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"white"</span>>@android:color/white<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  17 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"transparent"</span></span>>@android:color/transparent<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  18 </span>
+<span class="lineno">  19 </span>    <span class="comment">&lt;!--[87% 普通文字] [54% 减淡文字] [26% 禁用状态/提示文字] [12% 分隔线]--></span>
+<span class="lineno">  20 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"color_text"</span>>#1a1a1a<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:20</span>: <span class="message">The resource <code>R.color.color_text</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  17 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"transparent"</span>>@android:color/transparent<span class="tag">&lt;/color></span>
+<span class="lineno">  18 </span>
+<span class="lineno">  19 </span>    <span class="comment">&lt;!--[87% 普通文字] [54% 减淡文字] [26% 禁用状态/提示文字] [12% 分隔线]--></span>
+<span class="caretline"><span class="lineno">  20 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"color_text"</span></span>>#1a1a1a<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  21 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"color_text_secondary"</span>>#5f5f5f<span class="tag">&lt;/color></span>
+<span class="lineno">  22 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"color_text_hint"</span>>#a8a8a8<span class="tag">&lt;/color></span>
+<span class="lineno">  23 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"color_text_divider"</span>>#fcfcfc<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:21</span>: <span class="message">The resource <code>R.color.color_text_secondary</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  18 </span>
+<span class="lineno">  19 </span>    <span class="comment">&lt;!--[87% 普通文字] [54% 减淡文字] [26% 禁用状态/提示文字] [12% 分隔线]--></span>
+<span class="lineno">  20 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"color_text"</span>>#1a1a1a<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  21 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"color_text_secondary"</span></span>>#5f5f5f<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  22 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"color_text_hint"</span>>#a8a8a8<span class="tag">&lt;/color></span>
+<span class="lineno">  23 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"color_text_divider"</span>>#fcfcfc<span class="tag">&lt;/color></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:22</span>: <span class="message">The resource <code>R.color.color_text_hint</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  19 </span>    <span class="comment">&lt;!--[87% 普通文字] [54% 减淡文字] [26% 禁用状态/提示文字] [12% 分隔线]--></span>
+<span class="lineno">  20 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"color_text"</span>>#1a1a1a<span class="tag">&lt;/color></span>
+<span class="lineno">  21 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"color_text_secondary"</span>>#5f5f5f<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  22 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"color_text_hint"</span></span>>#a8a8a8<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  23 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"color_text_divider"</span>>#fcfcfc<span class="tag">&lt;/color></span>
+<span class="lineno">  24 </span>
+<span class="lineno">  25 </span>    <span class="comment">&lt;!--红色--></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:23</span>: <span class="message">The resource <code>R.color.color_text_divider</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  20 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"color_text"</span>>#1a1a1a<span class="tag">&lt;/color></span>
+<span class="lineno">  21 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"color_text_secondary"</span>>#5f5f5f<span class="tag">&lt;/color></span>
+<span class="lineno">  22 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"color_text_hint"</span>>#a8a8a8<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  23 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"color_text_divider"</span></span>>#fcfcfc<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  24 </span>
+<span class="lineno">  25 </span>    <span class="comment">&lt;!--红色--></span>
+<span class="lineno">  26 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_50"</span>>#fde0dc<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:26</span>: <span class="message">The resource <code>R.color.red_50</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  23 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"color_text_divider"</span>>#fcfcfc<span class="tag">&lt;/color></span>
+<span class="lineno">  24 </span>
+<span class="lineno">  25 </span>    <span class="comment">&lt;!--红色--></span>
+<span class="caretline"><span class="lineno">  26 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"red_50"</span></span>>#fde0dc<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  27 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_100"</span>>#f9bdbb<span class="tag">&lt;/color></span>
+<span class="lineno">  28 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_200"</span>>#f69988<span class="tag">&lt;/color></span>
+<span class="lineno">  29 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_300"</span>>#f36c60<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:27</span>: <span class="message">The resource <code>R.color.red_100</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  24 </span>
+<span class="lineno">  25 </span>    <span class="comment">&lt;!--红色--></span>
+<span class="lineno">  26 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_50"</span>>#fde0dc<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  27 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"red_100"</span></span>>#f9bdbb<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  28 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_200"</span>>#f69988<span class="tag">&lt;/color></span>
+<span class="lineno">  29 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_300"</span>>#f36c60<span class="tag">&lt;/color></span>
+<span class="lineno">  30 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_400"</span>>#e84e40<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:28</span>: <span class="message">The resource <code>R.color.red_200</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  25 </span>    <span class="comment">&lt;!--红色--></span>
+<span class="lineno">  26 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_50"</span>>#fde0dc<span class="tag">&lt;/color></span>
+<span class="lineno">  27 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_100"</span>>#f9bdbb<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  28 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"red_200"</span></span>>#f69988<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  29 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_300"</span>>#f36c60<span class="tag">&lt;/color></span>
+<span class="lineno">  30 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_400"</span>>#e84e40<span class="tag">&lt;/color></span>
+<span class="lineno">  31 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_500"</span>>#e51c23<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:29</span>: <span class="message">The resource <code>R.color.red_300</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  26 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_50"</span>>#fde0dc<span class="tag">&lt;/color></span>
+<span class="lineno">  27 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_100"</span>>#f9bdbb<span class="tag">&lt;/color></span>
+<span class="lineno">  28 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_200"</span>>#f69988<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  29 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"red_300"</span></span>>#f36c60<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  30 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_400"</span>>#e84e40<span class="tag">&lt;/color></span>
+<span class="lineno">  31 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_500"</span>>#e51c23<span class="tag">&lt;/color></span>
+<span class="lineno">  32 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_600"</span>>#dd191d<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:30</span>: <span class="message">The resource <code>R.color.red_400</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  27 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_100"</span>>#f9bdbb<span class="tag">&lt;/color></span>
+<span class="lineno">  28 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_200"</span>>#f69988<span class="tag">&lt;/color></span>
+<span class="lineno">  29 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_300"</span>>#f36c60<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  30 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"red_400"</span></span>>#e84e40<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  31 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_500"</span>>#e51c23<span class="tag">&lt;/color></span>
+<span class="lineno">  32 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_600"</span>>#dd191d<span class="tag">&lt;/color></span>
+<span class="lineno">  33 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_700"</span>>#d01716<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:31</span>: <span class="message">The resource <code>R.color.red_500</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  28 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_200"</span>>#f69988<span class="tag">&lt;/color></span>
+<span class="lineno">  29 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_300"</span>>#f36c60<span class="tag">&lt;/color></span>
+<span class="lineno">  30 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_400"</span>>#e84e40<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  31 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"red_500"</span></span>>#e51c23<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  32 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_600"</span>>#dd191d<span class="tag">&lt;/color></span>
+<span class="lineno">  33 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_700"</span>>#d01716<span class="tag">&lt;/color></span>
+<span class="lineno">  34 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_800"</span>>#c41411<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:32</span>: <span class="message">The resource <code>R.color.red_600</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  29 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_300"</span>>#f36c60<span class="tag">&lt;/color></span>
+<span class="lineno">  30 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_400"</span>>#e84e40<span class="tag">&lt;/color></span>
+<span class="lineno">  31 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_500"</span>>#e51c23<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  32 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"red_600"</span></span>>#dd191d<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  33 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_700"</span>>#d01716<span class="tag">&lt;/color></span>
+<span class="lineno">  34 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_800"</span>>#c41411<span class="tag">&lt;/color></span>
+<span class="lineno">  35 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_900"</span>>#b0120a<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:33</span>: <span class="message">The resource <code>R.color.red_700</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  30 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_400"</span>>#e84e40<span class="tag">&lt;/color></span>
+<span class="lineno">  31 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_500"</span>>#e51c23<span class="tag">&lt;/color></span>
+<span class="lineno">  32 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_600"</span>>#dd191d<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  33 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"red_700"</span></span>>#d01716<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  34 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_800"</span>>#c41411<span class="tag">&lt;/color></span>
+<span class="lineno">  35 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_900"</span>>#b0120a<span class="tag">&lt;/color></span>
+<span class="lineno">  36 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_a100"</span>>#ff7997<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:34</span>: <span class="message">The resource <code>R.color.red_800</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  31 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_500"</span>>#e51c23<span class="tag">&lt;/color></span>
+<span class="lineno">  32 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_600"</span>>#dd191d<span class="tag">&lt;/color></span>
+<span class="lineno">  33 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_700"</span>>#d01716<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  34 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"red_800"</span></span>>#c41411<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  35 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_900"</span>>#b0120a<span class="tag">&lt;/color></span>
+<span class="lineno">  36 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_a100"</span>>#ff7997<span class="tag">&lt;/color></span>
+<span class="lineno">  37 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_a200"</span>>#ff5177<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:35</span>: <span class="message">The resource <code>R.color.red_900</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  32 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_600"</span>>#dd191d<span class="tag">&lt;/color></span>
+<span class="lineno">  33 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_700"</span>>#d01716<span class="tag">&lt;/color></span>
+<span class="lineno">  34 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_800"</span>>#c41411<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  35 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"red_900"</span></span>>#b0120a<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  36 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_a100"</span>>#ff7997<span class="tag">&lt;/color></span>
+<span class="lineno">  37 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_a200"</span>>#ff5177<span class="tag">&lt;/color></span>
+<span class="lineno">  38 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_a400"</span>>#ff2d6f<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:36</span>: <span class="message">The resource <code>R.color.red_a100</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  33 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_700"</span>>#d01716<span class="tag">&lt;/color></span>
+<span class="lineno">  34 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_800"</span>>#c41411<span class="tag">&lt;/color></span>
+<span class="lineno">  35 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_900"</span>>#b0120a<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  36 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"red_a100"</span></span>>#ff7997<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  37 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_a200"</span>>#ff5177<span class="tag">&lt;/color></span>
+<span class="lineno">  38 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_a400"</span>>#ff2d6f<span class="tag">&lt;/color></span>
+<span class="lineno">  39 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_a700"</span>>#e00032<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:37</span>: <span class="message">The resource <code>R.color.red_a200</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  34 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_800"</span>>#c41411<span class="tag">&lt;/color></span>
+<span class="lineno">  35 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_900"</span>>#b0120a<span class="tag">&lt;/color></span>
+<span class="lineno">  36 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_a100"</span>>#ff7997<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  37 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"red_a200"</span></span>>#ff5177<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  38 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_a400"</span>>#ff2d6f<span class="tag">&lt;/color></span>
+<span class="lineno">  39 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_a700"</span>>#e00032<span class="tag">&lt;/color></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:38</span>: <span class="message">The resource <code>R.color.red_a400</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  35 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_900"</span>>#b0120a<span class="tag">&lt;/color></span>
+<span class="lineno">  36 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_a100"</span>>#ff7997<span class="tag">&lt;/color></span>
+<span class="lineno">  37 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_a200"</span>>#ff5177<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  38 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"red_a400"</span></span>>#ff2d6f<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  39 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_a700"</span>>#e00032<span class="tag">&lt;/color></span>
+<span class="lineno">  40 </span>
+<span class="lineno">  41 </span>    <span class="comment">&lt;!--粉色--></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:39</span>: <span class="message">The resource <code>R.color.red_a700</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  36 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_a100"</span>>#ff7997<span class="tag">&lt;/color></span>
+<span class="lineno">  37 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_a200"</span>>#ff5177<span class="tag">&lt;/color></span>
+<span class="lineno">  38 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_a400"</span>>#ff2d6f<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  39 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"red_a700"</span></span>>#e00032<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  40 </span>
+<span class="lineno">  41 </span>    <span class="comment">&lt;!--粉色--></span>
+<span class="lineno">  42 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_50"</span>>#fce4ec<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:42</span>: <span class="message">The resource <code>R.color.pink_50</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  39 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"red_a700"</span>>#e00032<span class="tag">&lt;/color></span>
+<span class="lineno">  40 </span>
+<span class="lineno">  41 </span>    <span class="comment">&lt;!--粉色--></span>
+<span class="caretline"><span class="lineno">  42 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"pink_50"</span></span>>#fce4ec<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  43 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_100"</span>>#f8bbd0<span class="tag">&lt;/color></span>
+<span class="lineno">  44 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_200"</span>>#f48fb1<span class="tag">&lt;/color></span>
+<span class="lineno">  45 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_300"</span>>#f06292<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:43</span>: <span class="message">The resource <code>R.color.pink_100</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  40 </span>
+<span class="lineno">  41 </span>    <span class="comment">&lt;!--粉色--></span>
+<span class="lineno">  42 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_50"</span>>#fce4ec<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  43 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"pink_100"</span></span>>#f8bbd0<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  44 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_200"</span>>#f48fb1<span class="tag">&lt;/color></span>
+<span class="lineno">  45 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_300"</span>>#f06292<span class="tag">&lt;/color></span>
+<span class="lineno">  46 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_400"</span>>#ec407a<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:44</span>: <span class="message">The resource <code>R.color.pink_200</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  41 </span>    <span class="comment">&lt;!--粉色--></span>
+<span class="lineno">  42 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_50"</span>>#fce4ec<span class="tag">&lt;/color></span>
+<span class="lineno">  43 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_100"</span>>#f8bbd0<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  44 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"pink_200"</span></span>>#f48fb1<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  45 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_300"</span>>#f06292<span class="tag">&lt;/color></span>
+<span class="lineno">  46 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_400"</span>>#ec407a<span class="tag">&lt;/color></span>
+<span class="lineno">  47 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_500"</span>>#e91e63<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:45</span>: <span class="message">The resource <code>R.color.pink_300</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  42 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_50"</span>>#fce4ec<span class="tag">&lt;/color></span>
+<span class="lineno">  43 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_100"</span>>#f8bbd0<span class="tag">&lt;/color></span>
+<span class="lineno">  44 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_200"</span>>#f48fb1<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  45 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"pink_300"</span></span>>#f06292<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  46 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_400"</span>>#ec407a<span class="tag">&lt;/color></span>
+<span class="lineno">  47 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_500"</span>>#e91e63<span class="tag">&lt;/color></span>
+<span class="lineno">  48 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_600"</span>>#d81b60<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:46</span>: <span class="message">The resource <code>R.color.pink_400</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  43 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_100"</span>>#f8bbd0<span class="tag">&lt;/color></span>
+<span class="lineno">  44 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_200"</span>>#f48fb1<span class="tag">&lt;/color></span>
+<span class="lineno">  45 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_300"</span>>#f06292<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  46 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"pink_400"</span></span>>#ec407a<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  47 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_500"</span>>#e91e63<span class="tag">&lt;/color></span>
+<span class="lineno">  48 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_600"</span>>#d81b60<span class="tag">&lt;/color></span>
+<span class="lineno">  49 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_700"</span>>#c2185b<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:47</span>: <span class="message">The resource <code>R.color.pink_500</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  44 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_200"</span>>#f48fb1<span class="tag">&lt;/color></span>
+<span class="lineno">  45 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_300"</span>>#f06292<span class="tag">&lt;/color></span>
+<span class="lineno">  46 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_400"</span>>#ec407a<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  47 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"pink_500"</span></span>>#e91e63<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  48 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_600"</span>>#d81b60<span class="tag">&lt;/color></span>
+<span class="lineno">  49 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_700"</span>>#c2185b<span class="tag">&lt;/color></span>
+<span class="lineno">  50 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_800"</span>>#ad1457<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:48</span>: <span class="message">The resource <code>R.color.pink_600</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  45 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_300"</span>>#f06292<span class="tag">&lt;/color></span>
+<span class="lineno">  46 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_400"</span>>#ec407a<span class="tag">&lt;/color></span>
+<span class="lineno">  47 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_500"</span>>#e91e63<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  48 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"pink_600"</span></span>>#d81b60<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  49 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_700"</span>>#c2185b<span class="tag">&lt;/color></span>
+<span class="lineno">  50 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_800"</span>>#ad1457<span class="tag">&lt;/color></span>
+<span class="lineno">  51 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_900"</span>>#880e4f<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:49</span>: <span class="message">The resource <code>R.color.pink_700</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  46 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_400"</span>>#ec407a<span class="tag">&lt;/color></span>
+<span class="lineno">  47 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_500"</span>>#e91e63<span class="tag">&lt;/color></span>
+<span class="lineno">  48 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_600"</span>>#d81b60<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  49 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"pink_700"</span></span>>#c2185b<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  50 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_800"</span>>#ad1457<span class="tag">&lt;/color></span>
+<span class="lineno">  51 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_900"</span>>#880e4f<span class="tag">&lt;/color></span>
+<span class="lineno">  52 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_a100"</span>>#ff80ab<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:50</span>: <span class="message">The resource <code>R.color.pink_800</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  47 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_500"</span>>#e91e63<span class="tag">&lt;/color></span>
+<span class="lineno">  48 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_600"</span>>#d81b60<span class="tag">&lt;/color></span>
+<span class="lineno">  49 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_700"</span>>#c2185b<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  50 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"pink_800"</span></span>>#ad1457<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  51 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_900"</span>>#880e4f<span class="tag">&lt;/color></span>
+<span class="lineno">  52 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_a100"</span>>#ff80ab<span class="tag">&lt;/color></span>
+<span class="lineno">  53 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_a200"</span>>#ff4081<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:51</span>: <span class="message">The resource <code>R.color.pink_900</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  48 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_600"</span>>#d81b60<span class="tag">&lt;/color></span>
+<span class="lineno">  49 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_700"</span>>#c2185b<span class="tag">&lt;/color></span>
+<span class="lineno">  50 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_800"</span>>#ad1457<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  51 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"pink_900"</span></span>>#880e4f<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  52 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_a100"</span>>#ff80ab<span class="tag">&lt;/color></span>
+<span class="lineno">  53 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_a200"</span>>#ff4081<span class="tag">&lt;/color></span>
+<span class="lineno">  54 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_a400"</span>>#f50057<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:52</span>: <span class="message">The resource <code>R.color.pink_a100</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  49 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_700"</span>>#c2185b<span class="tag">&lt;/color></span>
+<span class="lineno">  50 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_800"</span>>#ad1457<span class="tag">&lt;/color></span>
+<span class="lineno">  51 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_900"</span>>#880e4f<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  52 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"pink_a100"</span></span>>#ff80ab<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  53 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_a200"</span>>#ff4081<span class="tag">&lt;/color></span>
+<span class="lineno">  54 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_a400"</span>>#f50057<span class="tag">&lt;/color></span>
+<span class="lineno">  55 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_a700"</span>>#c51162<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:53</span>: <span class="message">The resource <code>R.color.pink_a200</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  50 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_800"</span>>#ad1457<span class="tag">&lt;/color></span>
+<span class="lineno">  51 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_900"</span>>#880e4f<span class="tag">&lt;/color></span>
+<span class="lineno">  52 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_a100"</span>>#ff80ab<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  53 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"pink_a200"</span></span>>#ff4081<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  54 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_a400"</span>>#f50057<span class="tag">&lt;/color></span>
+<span class="lineno">  55 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_a700"</span>>#c51162<span class="tag">&lt;/color></span>
+</pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:54</span>: <span class="message">The resource <code>R.color.pink_a400</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  51 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_900"</span>>#880e4f<span class="tag">&lt;/color></span>
+<span class="lineno">  52 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_a100"</span>>#ff80ab<span class="tag">&lt;/color></span>
+<span class="lineno">  53 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_a200"</span>>#ff4081<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  54 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"pink_a400"</span></span>>#f50057<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  55 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_a700"</span>>#c51162<span class="tag">&lt;/color></span>
+<span class="lineno">  56 </span>
+<span class="lineno">  57 </span>    <span class="comment">&lt;!--紫色--></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:55</span>: <span class="message">The resource <code>R.color.pink_a700</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  52 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_a100"</span>>#ff80ab<span class="tag">&lt;/color></span>
+<span class="lineno">  53 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_a200"</span>>#ff4081<span class="tag">&lt;/color></span>
+<span class="lineno">  54 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_a400"</span>>#f50057<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  55 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"pink_a700"</span></span>>#c51162<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  56 </span>
+<span class="lineno">  57 </span>    <span class="comment">&lt;!--紫色--></span>
+<span class="lineno">  58 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_50"</span>>#f3e5f5<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:58</span>: <span class="message">The resource <code>R.color.purple_50</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  55 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"pink_a700"</span>>#c51162<span class="tag">&lt;/color></span>
+<span class="lineno">  56 </span>
+<span class="lineno">  57 </span>    <span class="comment">&lt;!--紫色--></span>
+<span class="caretline"><span class="lineno">  58 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"purple_50"</span></span>>#f3e5f5<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  59 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_100"</span>>#e1bee7<span class="tag">&lt;/color></span>
+<span class="lineno">  60 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_200"</span>>#ce93d8<span class="tag">&lt;/color></span>
+<span class="lineno">  61 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_300"</span>>#ba68c8<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:59</span>: <span class="message">The resource <code>R.color.purple_100</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  56 </span>
+<span class="lineno">  57 </span>    <span class="comment">&lt;!--紫色--></span>
+<span class="lineno">  58 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_50"</span>>#f3e5f5<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  59 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"purple_100"</span></span>>#e1bee7<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  60 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_200"</span>>#ce93d8<span class="tag">&lt;/color></span>
+<span class="lineno">  61 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_300"</span>>#ba68c8<span class="tag">&lt;/color></span>
+<span class="lineno">  62 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_400"</span>>#ab47bc<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:60</span>: <span class="message">The resource <code>R.color.purple_200</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  57 </span>    <span class="comment">&lt;!--紫色--></span>
+<span class="lineno">  58 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_50"</span>>#f3e5f5<span class="tag">&lt;/color></span>
+<span class="lineno">  59 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_100"</span>>#e1bee7<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  60 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"purple_200"</span></span>>#ce93d8<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  61 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_300"</span>>#ba68c8<span class="tag">&lt;/color></span>
+<span class="lineno">  62 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_400"</span>>#ab47bc<span class="tag">&lt;/color></span>
+<span class="lineno">  63 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_500"</span>>#9c27b0<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:61</span>: <span class="message">The resource <code>R.color.purple_300</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  58 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_50"</span>>#f3e5f5<span class="tag">&lt;/color></span>
+<span class="lineno">  59 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_100"</span>>#e1bee7<span class="tag">&lt;/color></span>
+<span class="lineno">  60 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_200"</span>>#ce93d8<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  61 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"purple_300"</span></span>>#ba68c8<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  62 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_400"</span>>#ab47bc<span class="tag">&lt;/color></span>
+<span class="lineno">  63 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_500"</span>>#9c27b0<span class="tag">&lt;/color></span>
+<span class="lineno">  64 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_600"</span>>#8e24aa<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:62</span>: <span class="message">The resource <code>R.color.purple_400</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  59 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_100"</span>>#e1bee7<span class="tag">&lt;/color></span>
+<span class="lineno">  60 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_200"</span>>#ce93d8<span class="tag">&lt;/color></span>
+<span class="lineno">  61 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_300"</span>>#ba68c8<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  62 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"purple_400"</span></span>>#ab47bc<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  63 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_500"</span>>#9c27b0<span class="tag">&lt;/color></span>
+<span class="lineno">  64 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_600"</span>>#8e24aa<span class="tag">&lt;/color></span>
+<span class="lineno">  65 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_700"</span>>#7b1fa2<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:63</span>: <span class="message">The resource <code>R.color.purple_500</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  60 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_200"</span>>#ce93d8<span class="tag">&lt;/color></span>
+<span class="lineno">  61 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_300"</span>>#ba68c8<span class="tag">&lt;/color></span>
+<span class="lineno">  62 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_400"</span>>#ab47bc<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  63 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"purple_500"</span></span>>#9c27b0<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  64 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_600"</span>>#8e24aa<span class="tag">&lt;/color></span>
+<span class="lineno">  65 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_700"</span>>#7b1fa2<span class="tag">&lt;/color></span>
+<span class="lineno">  66 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_800"</span>>#6a1b9a<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:64</span>: <span class="message">The resource <code>R.color.purple_600</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  61 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_300"</span>>#ba68c8<span class="tag">&lt;/color></span>
+<span class="lineno">  62 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_400"</span>>#ab47bc<span class="tag">&lt;/color></span>
+<span class="lineno">  63 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_500"</span>>#9c27b0<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  64 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"purple_600"</span></span>>#8e24aa<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  65 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_700"</span>>#7b1fa2<span class="tag">&lt;/color></span>
+<span class="lineno">  66 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_800"</span>>#6a1b9a<span class="tag">&lt;/color></span>
+<span class="lineno">  67 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_900"</span>>#4a148c<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:65</span>: <span class="message">The resource <code>R.color.purple_700</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  62 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_400"</span>>#ab47bc<span class="tag">&lt;/color></span>
+<span class="lineno">  63 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_500"</span>>#9c27b0<span class="tag">&lt;/color></span>
+<span class="lineno">  64 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_600"</span>>#8e24aa<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  65 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"purple_700"</span></span>>#7b1fa2<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  66 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_800"</span>>#6a1b9a<span class="tag">&lt;/color></span>
+<span class="lineno">  67 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_900"</span>>#4a148c<span class="tag">&lt;/color></span>
+<span class="lineno">  68 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_a100"</span>>#ea80fc<span class="tag">&lt;/color></span></pre>
+
+<span class="location"><a href="../../src/main/res/values/colors.xml">../../src/main/res/values/colors.xml</a>:66</span>: <span class="message">The resource <code>R.color.purple_800</code> appears to be unused</span><br /><pre class="errorlines">
+<span class="lineno">  63 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_500"</span>>#9c27b0<span class="tag">&lt;/color></span>
+<span class="lineno">  64 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_600"</span>>#8e24aa<span class="tag">&lt;/color></span>
+<span class="lineno">  65 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_700"</span>>#7b1fa2<span class="tag">&lt;/color></span>
+<span class="caretline"><span class="lineno">  66 </span>    <span class="tag">&lt;color</span><span class="attribute"> </span><span class="warning"><span class="attribute">name</span>=<span class="value">"purple_800"</span></span>>#6a1b9a<span class="tag">&lt;/color></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  67 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_900"</span>>#4a148c<span class="tag">&lt;/color></span>
+<span class="lineno">  68 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_a100"</span>>#ea80fc<span class="tag">&lt;/color></span>
+<span class="lineno">  69 </span>    <span class="tag">&lt;color</span><span class="attribute"> name</span>=<span class="value">"purple_a200"</span>>#e040fb<span class="tag">&lt;/color></span></pre>
+
+<br/><b>NOTE: 219 results omitted.</b><br/><br/></div>
+</div>
+<div class="metadata"><div class="explanation" id="explanationUnusedResources" style="display: none;">
+Unused resources make applications larger and slow down builds.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "UnusedResources" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">UnusedResources</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Performance</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 3/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationUnusedResourcesLink" onclick="reveal('explanationUnusedResources');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="UnusedResourcesCardLink" onclick="hideid('UnusedResourcesCard');">
+Dismiss</button>            </div>
+            </div>
+          </section><a name="UnusedNamespace"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="UnusedNamespaceCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Unused namespace</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/res/layout/activity_facility.xml">../../src/main/res/layout/activity_facility.xml</a>:43</span>: <span class="message">Unused namespace declaration xmlns:android; already declared on the root element</span><br /><pre class="errorlines">
+<span class="lineno"> 40 </span>        <span class="tag">&lt;/android.support.v7.widget.Toolbar></span>
+<span class="lineno"> 41 </span>    <span class="tag">&lt;/android.support.design.widget.AppBarLayout></span>
+<span class="lineno"> 42 </span>
+<span class="caretline"><span class="lineno"> 43 </span>    <span class="tag">&lt;LinearLayout</span><span class="attribute"> </span><span class="warning"><span class="prefix">xmlns:</span><span class="attribute">android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 44 </span>        <span class="prefix">xmlns:</span><span class="attribute">app</span>=<span class="value">"http://schemas.android.com/apk/res-auto"</span>
+<span class="lineno"> 45 </span>        <span class="prefix">xmlns:</span><span class="attribute">tools</span>=<span class="value">"http://schemas.android.com/tools"</span>
+<span class="lineno"> 46 </span>        <span class="prefix">android:</span><span class="attribute">layout_width</span>=<span class="value">"match_parent"</span></pre>
+
+<span class="location"><a href="../../src/main/res/layout/activity_facility.xml">../../src/main/res/layout/activity_facility.xml</a>:44</span>: <span class="message">Unused namespace declaration xmlns:app; already declared on the root element</span><br /><pre class="errorlines">
+<span class="lineno"> 41 </span>    <span class="tag">&lt;/android.support.design.widget.AppBarLayout></span>
+<span class="lineno"> 42 </span>
+<span class="lineno"> 43 </span>    <span class="tag">&lt;LinearLayout</span><span class="attribute"> </span><span class="prefix">xmlns:</span><span class="attribute">android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>
+<span class="caretline"><span class="lineno"> 44 </span>        <span class="warning"><span class="prefix">xmlns:</span><span class="attribute">app</span>=<span class="value">"http://schemas.android.com/apk/res-auto"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 45 </span>        <span class="prefix">xmlns:</span><span class="attribute">tools</span>=<span class="value">"http://schemas.android.com/tools"</span>
+<span class="lineno"> 46 </span>        <span class="prefix">android:</span><span class="attribute">layout_width</span>=<span class="value">"match_parent"</span>
+<span class="lineno"> 47 </span>        <span class="prefix">android:</span><span class="attribute">layout_height</span>=<span class="value">"match_parent"</span></pre>
+
+<span class="location"><a href="../../src/main/res/layout/activity_facility.xml">../../src/main/res/layout/activity_facility.xml</a>:45</span>: <span class="message">Unused namespace declaration xmlns:tools; already declared on the root element</span><br /><pre class="errorlines">
+<span class="lineno"> 42 </span>
+<span class="lineno"> 43 </span>    <span class="tag">&lt;LinearLayout</span><span class="attribute"> </span><span class="prefix">xmlns:</span><span class="attribute">android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>
+<span class="lineno"> 44 </span>        <span class="prefix">xmlns:</span><span class="attribute">app</span>=<span class="value">"http://schemas.android.com/apk/res-auto"</span>
+<span class="caretline"><span class="lineno"> 45 </span>        <span class="warning"><span class="prefix">xmlns:</span><span class="attribute">tools</span>=<span class="value">"http://schemas.android.com/tools"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 46 </span>        <span class="prefix">android:</span><span class="attribute">layout_width</span>=<span class="value">"match_parent"</span>
+<span class="lineno"> 47 </span>        <span class="prefix">android:</span><span class="attribute">layout_height</span>=<span class="value">"match_parent"</span>
+<span class="lineno"> 48 </span>        <span class="prefix">android:</span><span class="attribute">orientation</span>=<span class="value">"vertical"</span></pre>
+
+</div>
+<div class="metadata"><div class="explanation" id="explanationUnusedNamespace" style="display: none;">
+Unused namespace declarations take up space and require processing that is not necessary<br/>To suppress this error, use the issue id "UnusedNamespace" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">UnusedNamespace</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Performance</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 1/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationUnusedNamespaceLink" onclick="reveal('explanationUnusedNamespace');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="UnusedNamespaceCardLink" onclick="hideid('UnusedNamespaceCard');">
+Dismiss</button>            </div>
+            </div>
+          </section>
+<a name="Usability:Icons"></a>
+<a name="IconDensities"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="IconDensitiesCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Icon densities validation</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/res/drawable-xxhdpi">../../src/main/res/drawable-xxhdpi</a></span>: <span class="message">Missing the following drawables in <code>drawable-xxhdpi</code>: bg_home_item_n.9.png, bg_home_item_p.9.png, img_87_gym.jpg, img_academy_hall.jpg, img_armory.jpg... (5 more)</span><br />
+</div>
+<div class="metadata"><div class="explanation" id="explanationIconDensities" style="display: none;">
+Icons will look best if a custom version is provided for each of the major screen density classes (low, medium, high, extra high). This lint check identifies icons which do not have complete coverage across the densities.<br/>
+<br/>
+Low density is not really used much anymore, so this check ignores the ldpi density. To force lint to include it, set the environment variable <code>ANDROID_LINT_INCLUDE_LDPI=true</code>. For more information on current density usage, see <a href="http://developer.android.com/resources/dashboard/screens.html">http://developer.android.com/resources/dashboard/screens.html</a><br/><div class="moreinfo">More info: <a href="http://developer.android.com/guide/practices/screens_support.html">http://developer.android.com/guide/practices/screens_support.html</a>
+</div>To suppress this error, use the issue id "IconDensities" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">IconDensities</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Icons</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Usability</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 4/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationIconDensitiesLink" onclick="reveal('explanationIconDensities');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="IconDensitiesCardLink" onclick="hideid('IconDensitiesCard');">
+Dismiss</button>            </div>
+            </div>
+          </section><a name="IconMissingDensityFolder"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="IconMissingDensityFolderCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Missing density folder</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/res">../../src/main/res</a></span>: <span class="message">Missing density variation folders in <code>src/main/res</code>: drawable-hdpi, drawable-mdpi</span><br />
+</div>
+<div class="metadata"><div class="explanation" id="explanationIconMissingDensityFolder" style="display: none;">
+Icons will look best if a custom version is provided for each of the major screen density classes (low, medium, high, extra-high, extra-extra-high). This lint check identifies folders which are missing, such as <code>drawable-hdpi</code>.<br/>
+<br/>
+Low density is not really used much anymore, so this check ignores the ldpi density. To force lint to include it, set the environment variable <code>ANDROID_LINT_INCLUDE_LDPI=true</code>. For more information on current density usage, see <a href="http://developer.android.com/resources/dashboard/screens.html">http://developer.android.com/resources/dashboard/screens.html</a><br/><div class="moreinfo">More info: <a href="http://developer.android.com/guide/practices/screens_support.html">http://developer.android.com/guide/practices/screens_support.html</a>
+</div>To suppress this error, use the issue id "IconMissingDensityFolder" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">IconMissingDensityFolder</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Icons</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Usability</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 3/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationIconMissingDensityFolderLink" onclick="reveal('explanationIconMissingDensityFolder');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="IconMissingDensityFolderCardLink" onclick="hideid('IconMissingDensityFolderCard');">
+Dismiss</button>            </div>
+            </div>
+          </section>
+<a name="Usability"></a>
+<a name="SmallSp"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="SmallSpCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Text size is too small</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/res/layout/act_events.xml">../../src/main/res/layout/act_events.xml</a>:44</span>: <span class="message">Avoid using sizes smaller than <code>12sp</code>: <code>10sp</code></span><br /><pre class="errorlines">
+<span class="lineno"> 41 </span>            <span class="prefix">android:</span><span class="attribute">padding</span>=<span class="value">"2dp"</span>
+<span class="lineno"> 42 </span>            <span class="prefix">android:</span><span class="attribute">text</span>=<span class="value">"TIME"</span>
+<span class="lineno"> 43 </span>            <span class="prefix">android:</span><span class="attribute">textColor</span>=<span class="value">"@android:color/white"</span>
+<span class="caretline"><span class="lineno"> 44 </span>            <span class="warning"><span class="prefix">android:</span><span class="attribute">textSize</span>=<span class="value">"10sp"</span></span> />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 45 </span>
+<span class="lineno"> 46 </span>        <span class="tag">&lt;TextView</span><span class="attribute">
+</span><span class="lineno"> 47 </span><span class="attribute">            </span><span class="prefix">android:</span><span class="attribute">id</span>=<span class="value">"@+id/monthTip"</span></pre>
+
+<span class="location"><a href="../../src/main/res/layout/act_events.xml">../../src/main/res/layout/act_events.xml</a>:56</span>: <span class="message">Avoid using sizes smaller than <code>12sp</code>: <code>10sp</code></span><br /><pre class="errorlines">
+<span class="lineno"> 53 </span>            <span class="prefix">android:</span><span class="attribute">text</span>=<span class="value">"LOCATION"</span>
+<span class="lineno"> 54 </span>            <span class="prefix">android:</span><span class="attribute">textColor</span>=<span class="value">"@android:color/white"</span>
+<span class="lineno"> 55 </span>
+<span class="caretline"><span class="lineno"> 56 </span>            <span class="warning"><span class="prefix">android:</span><span class="attribute">textSize</span>=<span class="value">"10sp"</span></span> />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 57 </span>
+<span class="lineno"> 58 </span>        <span class="tag">&lt;TextView</span><span class="attribute">
+</span><span class="lineno"> 59 </span><span class="attribute">            </span><span class="prefix">android:</span><span class="attribute">id</span>=<span class="value">"@+id/dayTip"</span></pre>
+
+<span class="location"><a href="../../src/main/res/layout/act_events.xml">../../src/main/res/layout/act_events.xml</a>:71</span>: <span class="message">Avoid using sizes smaller than <code>12sp</code>: <code>10sp</code></span><br /><pre class="errorlines">
+<span class="lineno"> 68 </span>            <span class="prefix">android:</span><span class="attribute">text</span>=<span class="value">"NAME"</span>
+<span class="lineno"> 69 </span>            <span class="prefix">android:</span><span class="attribute">textColor</span>=<span class="value">"@android:color/white"</span>
+<span class="lineno"> 70 </span>
+<span class="caretline"><span class="lineno"> 71 </span>            <span class="warning"><span class="prefix">android:</span><span class="attribute">textSize</span>=<span class="value">"10sp"</span></span> />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 72 </span>    <span class="tag">&lt;/LinearLayout></span>
+<span class="lineno"> 73 </span>
+<span class="lineno"> 74 </span>    <span class="tag">&lt;android.support.v7.widget.RecyclerView</span></pre>
+
+</div>
+<div class="metadata"><div class="explanation" id="explanationSmallSp" style="display: none;">
+Avoid using sizes smaller than 12sp.<br/>To suppress this error, use the issue id "SmallSp" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">SmallSp</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Usability</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 4/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationSmallSpLink" onclick="reveal('explanationSmallSp');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="SmallSpCardLink" onclick="hideid('SmallSpCard');">
+Dismiss</button>            </div>
+            </div>
+          </section>
+<a name="Accessibility"></a>
+<a name="ContentDescription"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="ContentDescriptionCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Image without contentDescription</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/res/layout/custom_day.xml">../../src/main/res/layout/custom_day.xml</a>:27</span>: <span class="message">Missing <code>contentDescription</code> attribute on image</span><br /><pre class="errorlines">
+<span class="lineno"> 24 </span>        <span class="prefix">android:</span><span class="attribute">layout_height</span>=<span class="value">"wrap_content"</span>
+<span class="lineno"> 25 </span>        <span class="prefix">android:</span><span class="attribute">layout_centerInParent</span>=<span class="value">"true"</span>
+<span class="lineno"> 26 </span>        <span class="prefix">android:</span><span class="attribute">text</span>=<span class="value">"19"</span>/>
+<span class="caretline"><span class="lineno"> 27 </span>    <span class="warning"><span class="tag">&lt;ImageView</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="attribute">
+</span><span class="lineno"> 28 </span><span class="attribute">        </span><span class="prefix">android:</span><span class="attribute">id</span>=<span class="value">"@+id/maker"</span>
+<span class="lineno"> 29 </span>        <span class="prefix">android:</span><span class="attribute">layout_alignParentBottom</span>=<span class="value">"true"</span>
+<span class="lineno"> 30 </span>        <span class="prefix">android:</span><span class="attribute">layout_centerHorizontal</span>=<span class="value">"true"</span></pre>
+
+</div>
+<div class="metadata"><div class="explanation" id="explanationContentDescription" style="display: none;">
+Non-textual widgets like ImageViews and ImageButtons should use the <code>contentDescription</code> attribute to specify a textual description of the widget such that screen readers and other accessibility tools can adequately describe the user interface.<br/>
+<br/>
+Note that elements in application screens that are purely decorative and do not provide any content or enable a user action should not have accessibility content descriptions. In this case, just suppress the lint warning with a tools:ignore="ContentDescription" attribute.<br/>
+<br/>
+Note that for text fields, you should not set both the <code>hint</code> and the <code>contentDescription</code> attributes since the hint will never be shown. Just set the <code>hint</code>. See <a href="http://developer.android.com/guide/topics/ui/accessibility/checklist.html#special-cases">http://developer.android.com/guide/topics/ui/accessibility/checklist.html#special-cases</a>.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "ContentDescription" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">ContentDescription</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Accessibility</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 3/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationContentDescriptionLink" onclick="reveal('explanationContentDescription');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="ContentDescriptionCardLink" onclick="hideid('ContentDescriptionCard');">
+Dismiss</button>            </div>
+            </div>
+          </section>
+<a name="Internationalization"></a>
+<a name="HardcodedText"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="HardcodedTextCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Hardcoded text</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/res/layout/act_events.xml">../../src/main/res/layout/act_events.xml</a>:42</span>: <span class="message">Hardcoded string "TIME", should use <code>@string</code> resource</span><br /><pre class="errorlines">
+<span class="lineno"> 39 </span>            <span class="prefix">android:</span><span class="attribute">layout_weight</span>=<span class="value">"0.8"</span>
+<span class="lineno"> 40 </span>            <span class="prefix">android:</span><span class="attribute">gravity</span>=<span class="value">"center_vertical"</span>
+<span class="lineno"> 41 </span>            <span class="prefix">android:</span><span class="attribute">padding</span>=<span class="value">"2dp"</span>
+<span class="caretline"><span class="lineno"> 42 </span>            <span class="warning"><span class="prefix">android:</span><span class="attribute">text</span>=<span class="value">"TIME"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 43 </span>            <span class="prefix">android:</span><span class="attribute">textColor</span>=<span class="value">"@android:color/white"</span>
+<span class="lineno"> 44 </span>            <span class="prefix">android:</span><span class="attribute">textSize</span>=<span class="value">"10sp"</span> />
+</pre>
+
+<span class="location"><a href="../../src/main/res/layout/act_events.xml">../../src/main/res/layout/act_events.xml</a>:53</span>: <span class="message">Hardcoded string "LOCATION", should use <code>@string</code> resource</span><br /><pre class="errorlines">
+<span class="lineno"> 50 </span>            <span class="prefix">android:</span><span class="attribute">layout_weight</span>=<span class="value">"1"</span>
+<span class="lineno"> 51 </span>            <span class="prefix">android:</span><span class="attribute">gravity</span>=<span class="value">"center_vertical"</span>
+<span class="lineno"> 52 </span>            <span class="prefix">android:</span><span class="attribute">padding</span>=<span class="value">"2dp"</span>
+<span class="caretline"><span class="lineno"> 53 </span>            <span class="warning"><span class="prefix">android:</span><span class="attribute">text</span>=<span class="value">"LOCATION"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 54 </span>            <span class="prefix">android:</span><span class="attribute">textColor</span>=<span class="value">"@android:color/white"</span>
+<span class="lineno"> 55 </span>
+<span class="lineno"> 56 </span>            <span class="prefix">android:</span><span class="attribute">textSize</span>=<span class="value">"10sp"</span> />
+</pre>
+
+<span class="location"><a href="../../src/main/res/layout/act_events.xml">../../src/main/res/layout/act_events.xml</a>:68</span>: <span class="message">Hardcoded string "NAME", should use <code>@string</code> resource</span><br /><pre class="errorlines">
+<span class="lineno"> 65 </span>            <span class="prefix">android:</span><span class="attribute">layout_weight</span>=<span class="value">"1.5"</span>
+<span class="lineno"> 66 </span>            <span class="prefix">android:</span><span class="attribute">gravity</span>=<span class="value">"center_vertical"</span>
+<span class="lineno"> 67 </span>            <span class="prefix">android:</span><span class="attribute">padding</span>=<span class="value">"2dp"</span>
+<span class="caretline"><span class="lineno"> 68 </span>            <span class="warning"><span class="prefix">android:</span><span class="attribute">text</span>=<span class="value">"NAME"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 69 </span>            <span class="prefix">android:</span><span class="attribute">textColor</span>=<span class="value">"@android:color/white"</span>
+<span class="lineno"> 70 </span>
+<span class="lineno"> 71 </span>            <span class="prefix">android:</span><span class="attribute">textSize</span>=<span class="value">"10sp"</span> />
+</pre>
+
+<span class="location"><a href="../../src/main/res/layout/custom_day.xml">../../src/main/res/layout/custom_day.xml</a>:26</span>: <span class="message">Hardcoded string "19", should use <code>@string</code> resource</span><br /><pre class="errorlines">
+<span class="lineno"> 23 </span>        <span class="prefix">android:</span><span class="attribute">textColor</span>=<span class="value">"@color/white"</span>
+<span class="lineno"> 24 </span>        <span class="prefix">android:</span><span class="attribute">layout_height</span>=<span class="value">"wrap_content"</span>
+<span class="lineno"> 25 </span>        <span class="prefix">android:</span><span class="attribute">layout_centerInParent</span>=<span class="value">"true"</span>
+<span class="caretline"><span class="lineno"> 26 </span>        <span class="warning"><span class="prefix">android:</span><span class="attribute">text</span>=<span class="value">"19"</span></span>/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 27 </span>    <span class="tag">&lt;ImageView</span><span class="attribute">
+</span><span class="lineno"> 28 </span><span class="attribute">        </span><span class="prefix">android:</span><span class="attribute">id</span>=<span class="value">"@+id/maker"</span>
+<span class="lineno"> 29 </span>        <span class="prefix">android:</span><span class="attribute">layout_alignParentBottom</span>=<span class="value">"true"</span></pre>
+
+<span class="location"><a href="../../src/main/res/layout/include_main.xml">../../src/main/res/layout/include_main.xml</a>:22</span>: <span class="message">Hardcoded string "Facilities", should use <code>@string</code> resource</span><br /><pre class="errorlines">
+<span class="lineno"> 19 </span>        <span class="prefix">android:</span><span class="attribute">focusable</span>=<span class="value">"true"</span>
+<span class="lineno"> 20 </span>        <span class="prefix">android:</span><span class="attribute">gravity</span>=<span class="value">"center"</span>
+<span class="lineno"> 21 </span>        <span class="prefix">android:</span><span class="attribute">padding</span>=<span class="value">"36dp"</span>
+<span class="caretline"><span class="lineno"> 22 </span>        <span class="warning"><span class="prefix">android:</span><span class="attribute">text</span>=<span class="value">"Facilities"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 23 </span>        <span class="prefix">android:</span><span class="attribute">textColor</span>=<span class="value">"@color/grey_800"</span>
+<span class="lineno"> 24 </span>        <span class="prefix">android:</span><span class="attribute">textSize</span>=<span class="value">"24sp"</span>
+<span class="lineno"> 25 </span>        <span class="prefix">android:</span><span class="attribute">textStyle</span>=<span class="value">"bold"</span></pre>
+
+<span class="location"><a href="../../src/main/res/layout/include_main.xml">../../src/main/res/layout/include_main.xml</a>:46</span>: <span class="message">Hardcoded string "Time", should use <code>@string</code> resource</span><br /><pre class="errorlines">
+<span class="lineno"> 43 </span>        <span class="prefix">android:</span><span class="attribute">focusable</span>=<span class="value">"true"</span>
+<span class="lineno"> 44 </span>        <span class="prefix">android:</span><span class="attribute">gravity</span>=<span class="value">"center"</span>
+<span class="lineno"> 45 </span>        <span class="prefix">android:</span><span class="attribute">padding</span>=<span class="value">"36dp"</span>
+<span class="caretline"><span class="lineno"> 46 </span>        <span class="warning"><span class="prefix">android:</span><span class="attribute">text</span>=<span class="value">"Time"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 47 </span>        <span class="prefix">android:</span><span class="attribute">textColor</span>=<span class="value">"@color/grey_800"</span>
+<span class="lineno"> 48 </span>        <span class="prefix">android:</span><span class="attribute">textSize</span>=<span class="value">"24sp"</span>
+<span class="lineno"> 49 </span>        <span class="prefix">android:</span><span class="attribute">textStyle</span>=<span class="value">"bold"</span></pre>
+
+<span class="location"><a href="../../src/main/res/layout/include_main.xml">../../src/main/res/layout/include_main.xml</a>:70</span>: <span class="message">Hardcoded string "Events", should use <code>@string</code> resource</span><br /><pre class="errorlines">
+<span class="lineno"> 67 </span>        <span class="prefix">android:</span><span class="attribute">focusable</span>=<span class="value">"true"</span>
+<span class="lineno"> 68 </span>        <span class="prefix">android:</span><span class="attribute">gravity</span>=<span class="value">"center"</span>
+<span class="lineno"> 69 </span>        <span class="prefix">android:</span><span class="attribute">padding</span>=<span class="value">"36dp"</span>
+<span class="caretline"><span class="lineno"> 70 </span>        <span class="warning"><span class="prefix">android:</span><span class="attribute">text</span>=<span class="value">"Events"</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 71 </span>        <span class="prefix">android:</span><span class="attribute">textColor</span>=<span class="value">"@color/grey_800"</span>
+<span class="lineno"> 72 </span>        <span class="prefix">android:</span><span class="attribute">textSize</span>=<span class="value">"24sp"</span>
+<span class="lineno"> 73 </span>        <span class="prefix">android:</span><span class="attribute">textStyle</span>=<span class="value">"bold"</span></pre>
+
+<span class="location"><a href="../../src/main/res/layout/item_event.xml">../../src/main/res/layout/item_event.xml</a>:23</span>: <span class="message">Hardcoded string "Next Event: ", should use <code>@string</code> resource</span><br /><pre class="errorlines">
+<span class="lineno"> 20 </span>        <span class="prefix">android:</span><span class="attribute">layout_width</span>=<span class="value">"wrap_content"</span>
+<span class="lineno"> 21 </span>        <span class="prefix">android:</span><span class="attribute">layout_height</span>=<span class="value">"wrap_content"</span>
+<span class="lineno"> 22 </span>        <span class="prefix">android:</span><span class="attribute">layout_marginTop</span>=<span class="value">"6dp"</span>
+<span class="caretline"><span class="lineno"> 23 </span>        <span class="warning"><span class="prefix">android:</span><span class="attribute">text</span>=<span class="value">"Next Event: "</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 24 </span>        <span class="prefix">android:</span><span class="attribute">textColor</span>=<span class="value">"@color/grey_500"</span>
+<span class="lineno"> 25 </span>        <span class="prefix">android:</span><span class="attribute">textSize</span>=<span class="value">"12sp"</span>
+<span class="lineno"> 26 </span>        <span class="prefix">app:</span><span class="attribute">layout_constraintBottom_toBottomOf</span>=<span class="value">"parent"</span></pre>
+
+</div>
+<div class="metadata"><div class="explanation" id="explanationHardcodedText" style="display: none;">
+Hardcoding text attributes directly in layout files is bad for several reasons:<br/>
+<br/>
+* When creating configuration variations (for example for landscape or portrait)you have to repeat the actual text (and keep it up to date when making changes)<br/>
+<br/>
+* The application cannot be translated to other languages by just adding new translations for existing string resources.<br/>
+<br/>
+There are quickfixes to automatically extract this hardcoded string into a resource lookup.<br/>To suppress this error, use the issue id "HardcodedText" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">HardcodedText</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Internationalization</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 5/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationHardcodedTextLink" onclick="reveal('explanationHardcodedText');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="HardcodedTextCardLink" onclick="hideid('HardcodedTextCard');">
+Dismiss</button>            </div>
+            </div>
+          </section>
+<a name="Internationalization:Bidirectional Text"></a>
+<a name="RtlSymmetry"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="RtlSymmetryCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Padding and margin symmetry</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/res/layout/act_events.xml">../../src/main/res/layout/act_events.xml</a>:37</span>: <span class="message">When you define <code>paddingLeft</code> you should probably also define <code>paddingRight</code> for right-to-left symmetry</span><br /><pre class="errorlines">
+<span class="lineno"> 34 </span>            <span class="prefix">android:</span><span class="attribute">layout_height</span>=<span class="value">"wrap_content"</span>
+<span class="lineno"> 35 </span>            <span class="prefix">android:</span><span class="attribute">layout_marginEnd</span>=<span class="value">"8dp"</span>
+<span class="lineno"> 36 </span>            <span class="prefix">android:</span><span class="attribute">layout_marginRight</span>=<span class="value">"8dp"</span>
+<span class="caretline"><span class="lineno"> 37 </span>            <span class="warning"><span class="prefix">android:</span><span class="attribute">paddingLeft</span></span>=<span class="value">"2dp"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 38 </span>
+<span class="lineno"> 39 </span>            <span class="prefix">android:</span><span class="attribute">layout_weight</span>=<span class="value">"0.8"</span>
+<span class="lineno"> 40 </span>            <span class="prefix">android:</span><span class="attribute">gravity</span>=<span class="value">"center_vertical"</span></pre>
+
+</div>
+<div class="metadata"><div class="explanation" id="explanationRtlSymmetry" style="display: none;">
+If you specify padding or margin on the left side of a layout, you should probably also specify padding on the right side (and vice versa) for right-to-left layout symmetry.<br/>To suppress this error, use the issue id "RtlSymmetry" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">RtlSymmetry</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Bidirectional Text</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Internationalization</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 6/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationRtlSymmetryLink" onclick="reveal('explanationRtlSymmetry');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="RtlSymmetryCardLink" onclick="hideid('RtlSymmetryCard');">
+Dismiss</button>            </div>
+            </div>
+          </section><a name="RtlHardcoded"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="RtlHardcodedCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Using left/right instead of start/end attributes</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/res/layout/act_events.xml">../../src/main/res/layout/act_events.xml</a>:37</span>: <span class="message">Consider adding <code>android:paddingStart="2dp"</code> to better support right-to-left layouts</span><br /><pre class="errorlines">
+<span class="lineno"> 34 </span>            <span class="prefix">android:</span><span class="attribute">layout_height</span>=<span class="value">"wrap_content"</span>
+<span class="lineno"> 35 </span>            <span class="prefix">android:</span><span class="attribute">layout_marginEnd</span>=<span class="value">"8dp"</span>
+<span class="lineno"> 36 </span>            <span class="prefix">android:</span><span class="attribute">layout_marginRight</span>=<span class="value">"8dp"</span>
+<span class="caretline"><span class="lineno"> 37 </span>            <span class="warning"><span class="prefix">android:</span><span class="attribute">paddingLeft</span></span>=<span class="value">"2dp"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 38 </span>
+<span class="lineno"> 39 </span>            <span class="prefix">android:</span><span class="attribute">layout_weight</span>=<span class="value">"0.8"</span>
+<span class="lineno"> 40 </span>            <span class="prefix">android:</span><span class="attribute">gravity</span>=<span class="value">"center_vertical"</span></pre>
+
+<span class="location"><a href="../../src/main/res/layout/item_facility.xml">../../src/main/res/layout/item_facility.xml</a>:16</span>: <span class="message">Consider adding <code>android:layout_marginStart="16dp"</code> to better support right-to-left layouts</span><br /><pre class="errorlines">
+<span class="lineno"> 13 </span>        <span class="prefix">android:</span><span class="attribute">layout_width</span>=<span class="value">"0dp"</span>
+<span class="lineno"> 14 </span>        <span class="prefix">android:</span><span class="attribute">layout_height</span>=<span class="value">"wrap_content"</span>
+<span class="lineno"> 15 </span>        <span class="prefix">android:</span><span class="attribute">textColor</span>=<span class="value">"@color/grey_900"</span>
+<span class="caretline"><span class="lineno"> 16 </span>        <span class="warning"><span class="prefix">android:</span><span class="attribute">layout_marginLeft</span></span>=<span class="value">"16dp"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 17 </span>        <span class="prefix">app:</span><span class="attribute">layout_constraintBottom_toBottomOf</span>=<span class="value">"parent"</span>
+<span class="lineno"> 18 </span>        <span class="prefix">app:</span><span class="attribute">layout_constraintRight_toRightOf</span>=<span class="value">"parent"</span>
+<span class="lineno"> 19 </span>        <span class="prefix">app:</span><span class="attribute">layout_constraintStart_toEndOf</span>=<span class="value">"@+id/icon"</span></pre>
+
+<span class="location"><a href="../../src/main/res/layout/item_facility.xml">../../src/main/res/layout/item_facility.xml</a>:26</span>: <span class="message">Consider adding <code>android:layout_marginStart="16dp"</code> to better support right-to-left layouts</span><br /><pre class="errorlines">
+<span class="lineno"> 23 </span><span class="attribute">        </span><span class="prefix">android:</span><span class="attribute">id</span>=<span class="value">"@+id/icon"</span>
+<span class="lineno"> 24 </span>        <span class="prefix">android:</span><span class="attribute">layout_width</span>=<span class="value">"48dp"</span>
+<span class="lineno"> 25 </span>        <span class="prefix">android:</span><span class="attribute">layout_height</span>=<span class="value">"48dp"</span>
+<span class="caretline"><span class="lineno"> 26 </span>        <span class="warning"><span class="prefix">android:</span><span class="attribute">layout_marginLeft</span></span>=<span class="value">"16dp"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 27 </span>        <span class="prefix">app:</span><span class="attribute">layout_constraintBottom_toBottomOf</span>=<span class="value">"parent"</span>
+<span class="lineno"> 28 </span>        <span class="prefix">app:</span><span class="attribute">layout_constraintStart_toStartOf</span>=<span class="value">"parent"</span>
+<span class="lineno"> 29 </span>        <span class="prefix">app:</span><span class="attribute">layout_constraintTop_toTopOf</span>=<span class="value">"parent"</span></pre>
+
+</div>
+<div class="metadata"><div class="explanation" id="explanationRtlHardcoded" style="display: none;">
+Using <code>Gravity#LEFT</code> and <code>Gravity#RIGHT</code> can lead to problems when a layout is rendered in locales where text flows from right to left. Use <code>Gravity#START</code> and <code>Gravity#END</code> instead. Similarly, in XML <code>gravity</code> and <code>layout_gravity</code> attributes, use <code>start</code> rather than <code>left</code>.<br/>
+<br/>
+For XML attributes such as paddingLeft and <code>layout_marginLeft</code>, use <code>paddingStart</code> and <code>layout_marginStart</code>. <b>NOTE</b>: If your <code>minSdkVersion</code> is less than 17, you should add <b>both</b> the older left/right attributes <b>as well as</b> the new start/right attributes. On older platforms, where RTL is not supported and the start/right attributes are unknown and therefore ignored, you need the older left/right attributes. There is a separate lint check which catches that type of error.<br/>
+<br/>
+(Note: For <code>Gravity#LEFT</code> and <code>Gravity#START</code>, you can use these constants even when targeting older platforms, because the <code>start</code> bitmask is a superset of the <code>left</code> bitmask. Therefore, you can use <code>gravity="start"</code> rather than <code>gravity="left|start"</code>.)<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "RtlHardcoded" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">RtlHardcoded</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Bidirectional Text</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Internationalization</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 5/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationRtlHardcodedLink" onclick="reveal('explanationRtlHardcoded');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="RtlHardcodedCardLink" onclick="hideid('RtlHardcodedCard');">
+Dismiss</button>            </div>
+            </div>
+          </section>
+<a name="MissingIssues"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="MissingIssuesCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Disabled Checks</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+One or more issues were not run by lint, either 
+because the check is not enabled by default, or because 
+it was disabled with a command line flag or via one or 
+more <code>lint.xml</code> configuration files in the project directories.
+<div id="SuppressedIssues" style="display: none;"><br/><br/><div class="issue">
+<div class="id">AppLinksAutoVerifyError<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Ensures that app links are correctly set and associated with website.<br/><div class="moreinfo">More info: <a href="https://g.co/appindexing/applinks">https://g.co/appindexing/applinks</a>
+</div>To suppress this error, use the issue id "AppLinksAutoVerifyError" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">AppLinksAutoVerifyWarning<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Ensures that app links are correctly set and associated with website.<br/><div class="moreinfo">More info: <a href="https://g.co/appindexing/applinks">https://g.co/appindexing/applinks</a>
+</div>To suppress this error, use the issue id "AppLinksAutoVerifyWarning" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">BackButton<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+According to the Android Design Guide,<br/>
+<br/>
+"Other platforms use an explicit back button with label to allow the user to navigate up the application's hierarchy. Instead, Android uses the main action bar's app icon for hierarchical navigation and the navigation bar's back button for temporal navigation."<br/>
+This check is not very sophisticated (it just looks for buttons with the label "Back"), so it is disabled by default to not trigger on common scenarios like pairs of Back/Next buttons to paginate through screens.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/design/patterns/pure-android.html">http://developer.android.com/design/patterns/pure-android.html</a>
+</div>To suppress this error, use the issue id "BackButton" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">ConvertToWebp<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+The WebP format is typically more compact than PNG and JPEG. As of Android 4.2.1 it supports transparency and lossless conversion as well. Note that there is a quickfix in the IDE which lets you perform conversion.<br/>
+<br/>
+Launcher icons must be in the PNG format.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "ConvertToWebp" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">EasterEgg<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+An "easter egg" is code deliberately hidden in the code, both from potential users and even from other developers. This lint check looks for code which looks like it may be hidden from sight.<br/>To suppress this error, use the issue id "EasterEgg" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">FieldGetter<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Accessing a field within the class that defines a getter for that field is at least 3 times faster than calling the getter. For simple getters that do nothing other than return the field, you might want to just reference the local field directly instead.<br/>
+<br/>
+<b>NOTE</b>: As of Android 2.3 (Gingerbread), this optimization is performed automatically by Dalvik, so there is no need to change your code; this is only relevant if you are targeting older versions of Android.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/guide/practices/design/performance.html#internal_get_set">http://developer.android.com/guide/practices/design/performance.html#internal_get_set</a>
+</div>To suppress this error, use the issue id "FieldGetter" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">GoogleAppIndexingApiWarning<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Adds URLs to get your app into the Google index, to get installs and traffic to your app from Google Search.<br/><div class="moreinfo">More info: <a href="https://g.co/AppIndexing/AndroidStudio">https://g.co/AppIndexing/AndroidStudio</a>
+</div>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "GoogleAppIndexingApiWarning" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">IconExpectedSize<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+There are predefined sizes (for each density) for launcher icons. You should follow these conventions to make sure your icons fit in with the overall look of the platform.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/design/style/iconography.html">http://developer.android.com/design/style/iconography.html</a>
+</div>To suppress this error, use the issue id "IconExpectedSize" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">LogConditional<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+The BuildConfig class (available in Tools 17) provides a constant, "DEBUG", which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a "if (false)" check, surrounding your logging calls with a check for BuildConfig.DEBUG is a good idea.<br/>
+<br/>
+If you <b>really</b> intend for the logging to be present in release mode, you can suppress this warning with a @SuppressLint annotation for the intentional logging calls.<br/>To suppress this error, use the issue id "LogConditional" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">MangledCRLF<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+On Windows, line endings are typically recorded as carriage return plus newline: \r\n.<br/>
+<br/>
+This detector looks for invalid line endings with repeated carriage return characters (without newlines). Previous versions of the ADT plugin could accidentally introduce these into the file, and when editing the file, the editor could produce confusing visual artifacts.<br/><div class="moreinfo">More info: <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=375421">https://bugs.eclipse.org/bugs/show_bug.cgi?id=375421</a>
+</div>To suppress this error, use the issue id "MangledCRLF" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">MinSdkTooLow<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+The value of the <code>minSdkVersion</code> property is too low and can be incrementedwithout noticeably reducing the number of supported devices.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "MinSdkTooLow" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">MissingRegistered<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+If a class is referenced in the manifest or in a layout file, it must also exist in the project (or in one of the libraries included by the project. This check helps uncover typos in registration names, or attempts to rename or move classes without updating the manifest file properly.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/guide/topics/manifest/manifest-intro.html">http://developer.android.com/guide/topics/manifest/manifest-intro.html</a>
+</div>To suppress this error, use the issue id "MissingRegistered" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">NegativeMargin<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Margin values should be positive. Negative values are generally a sign that you are making assumptions about views surrounding the current one, or may be tempted to turn off child clipping to allow a view to escape its parent. Turning off child clipping to do this not only leads to poor graphical performance, it also results in wrong touch event handling since touch events are based strictly on a chain of parent-rect hit tests. Finally, making assumptions about the size of strings can lead to localization problems.<br/>To suppress this error, use the issue id "NegativeMargin" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">NewerVersionAvailable<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+This detector checks with a central repository to see if there are newer versions available for the dependencies used by this project. This is similar to the <code>GradleDependency</code> check, which checks for newer versions available in the Android SDK tools and libraries, but this works with any MavenCentral dependency, and connects to the library every time, which makes it more flexible but also <b>much</b> slower.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "NewerVersionAvailable" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">PermissionImpliesUnsupportedChromeOsHardware<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+The <code>&lt;uses-permission></code> element should not require a permission that implies an unsupported Chrome OS hardware feature. Google Play assumes that certain hardware related permissions indicate that the underlying hardware features are required by default. To fix the issue, consider declaring the corresponding uses-feature element with <code>required="false"</code> attribute.<br/><div class="moreinfo">More info: <a href="https://developer.android.com/topic/arc/manifest.html#implied-features">https://developer.android.com/topic/arc/manifest.html#implied-features</a>
+</div>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "PermissionImpliesUnsupportedChromeOsHardware" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">Registered<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Activities, services and content providers should be registered in the <code>AndroidManifest.xml</code> file using <code>&lt;activity></code>, <code>&lt;service></code> and <code>&lt;provider></code> tags.<br/>
+<br/>
+If your activity is simply a parent class intended to be subclassed by other "real" activities, make it an abstract class.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/guide/topics/manifest/manifest-intro.html">http://developer.android.com/guide/topics/manifest/manifest-intro.html</a>
+</div>To suppress this error, use the issue id "Registered" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">SelectableText<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+If a <code>&lt;TextView></code> is used to display data, the user might want to copy that data and paste it elsewhere. To allow this, the <code>&lt;TextView></code> should specify <code>android:textIsSelectable="true"</code>.<br/>
+<br/>
+This lint check looks for TextViews which are likely to be displaying data: views whose text is set dynamically. This value will be ignored on platforms older than API 11, so it is okay to set it regardless of your <code>minSdkVersion</code>.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "SelectableText" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">StopShip<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Using the comment <code>// STOPSHIP</code> can be used to flag code that is incomplete but checked in. This comment marker can be used to indicate that the code should not be shipped until the issue is addressed, and lint will look for these.  In Gradle projects, this is only checked for non-debug (release) builds.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "StopShip" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">TypographyQuotes<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Straight single quotes and double quotes, when used as a pair, can be replaced by "curvy quotes" (or directional quotes). This can make the text more readable.<br/>
+<br/>
+Note that you should never use grave accents and apostrophes to quote, `like this'.<br/>
+<br/>
+(Also note that you should not use curvy quotes for code fragments.)<br/><div class="moreinfo">More info: <a href="http://en.wikipedia.org/wiki/Quotation_mark">http://en.wikipedia.org/wiki/Quotation_mark</a>
+</div>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "TypographyQuotes" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">UnpackedNativeCode<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+This app loads native libraries using <code>System.loadLibrary()</code>.<br/>
+<br/>
+Consider adding <code>android:extractNativeLibs="false"</code> to the <code>&lt;application></code> tag in AndroidManifest.xml. Starting with Android 6.0, this will make installation faster, the app will take up less space on the device and updates will have smaller download sizes.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "UnpackedNativeCode" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">UnsupportedChromeOsHardware<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+The <code>&lt;uses-feature></code> element should not require this unsupported Chrome OS hardware feature. Any uses-feature not explicitly marked with <code>required="false"</code> is necessary on the device to be installed on. Ensure that any features that might prevent it from being installed on a Chrome OS device are reviewed and marked as not required in the manifest.<br/><div class="moreinfo">More info: <a href="https://developer.android.com/topic/arc/manifest.html#incompat-entries">https://developer.android.com/topic/arc/manifest.html#incompat-entries</a>
+</div>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "UnsupportedChromeOsHardware" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">UnusedIds<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "UnusedIds" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">WrongThreadInterprocedural<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Searches for interprocedural call paths that violate thread annotations in the program. Tracks the flow of instantiated types and lambda expressions to increase accuracy across method boundaries.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/guide/components/processes-and-threads.html#Threads">http://developer.android.com/guide/components/processes-and-threads.html#Threads</a>
+</div>To suppress this error, use the issue id "WrongThreadInterprocedural" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+</div>              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="SuppressedIssuesLink" onclick="reveal('SuppressedIssues');">
+List Missing Issues</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="MissingIssuesCardLink" onclick="hideid('MissingIssuesCard');">
+Dismiss</button>            </div>
+            </div>
+          </section>
+<a name="SuppressInfo"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="SuppressCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Suppressing Warnings and Errors</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+Lint errors can be suppressed in a variety of ways:<br/>
+<br/>
+1. With a <code>@SuppressLint</code> annotation in the Java code<br/>
+2. With a <code>tools:ignore</code> attribute in the XML file<br/>
+3. With a //noinspection comment in the source code<br/>
+4. With ignore flags specified in the <code>build.gradle</code> file, as explained below<br/>
+5. With a <code>lint.xml</code> configuration file in the project<br/>
+6. With a <code>lint.xml</code> configuration file passed to lint via the --config flag<br/>
+7. With the --ignore flag passed to lint.<br/>
+<br/>
+To suppress a lint warning with an annotation, add a <code>@SuppressLint("id")</code> annotation on the class, method or variable declaration closest to the warning instance you want to disable. The id can be one or more issue id's, such as <code>"UnusedResources"</code> or <code>{"UnusedResources","UnusedIds"}</code>, or it can be <code>"all"</code> to suppress all lint warnings in the given scope.<br/>
+<br/>
+To suppress a lint warning with a comment, add a <code>//noinspection id</code> comment on the line before the statement with the error.<br/>
+<br/>
+To suppress a lint warning in an XML file, add a <code>tools:ignore="id"</code> attribute on the element containing the error, or one of its surrounding elements. You also need to define the namespace for the tools prefix on the root element in your document, next to the <code>xmlns:android</code> declaration:<br/>
+<code>xmlns:tools="http://schemas.android.com/tools"</code><br/>
+<br/>
+To suppress a lint warning in a <code>build.gradle</code> file, add a section like this:<br/>
+<br/>
+android {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;lintOptions {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;disable 'TypographyFractions','TypographyQuotes'<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+}<br/>
+<br/>
+Here we specify a comma separated list of issue id's after the disable command. You can also use <code>warning</code> or <code>error</code> instead of <code>disable</code> to change the severity of issues.<br/>
+<br/>
+To suppress lint warnings with a configuration XML file, create a file named <code>lint.xml</code> and place it at the root directory of the module in which it applies.<br/>
+<br/>
+The format of the <code>lint.xml</code> file is something like the following:<br/>
+<br/>
+&lt;?xml version="1.0" encoding="UTF-8"?><br/>
+&lt;lint><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Ignore everything in the test source set --><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;issue id="all"><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ignore path="*/test/*" /><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/issue><br/>
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Disable this given check in this project --><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;issue id="IconMissingDensityFolder" severity="ignore" /><br/>
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Ignore the ObsoleteLayoutParam issue in the given files --><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;issue id="ObsoleteLayoutParam"><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ignore path="res/layout/activation.xml" /><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ignore path="res/layout-xlarge/activation.xml" /><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ignore regexp="(foo|bar).java" /><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/issue><br/>
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Ignore the UselessLeaf issue in the given file --><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;issue id="UselessLeaf"><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ignore path="res/layout/main.xml" /><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/issue><br/>
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Change the severity of hardcoded strings to "error" --><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;issue id="HardcodedText" severity="error" /><br/>
+&lt;/lint><br/>
+<br/>
+To suppress lint checks from the command line, pass the --ignore flag with a comma separated list of ids to be suppressed, such as:<br/>
+<code>$ lint --ignore UnusedResources,UselessLeaf /my/project/path</code><br/>
+<br/>
+For more information, see <a href="http://g.co/androidstudio/suppressing-lint-warnings">http://g.co/androidstudio/suppressing-lint-warnings</a><br/>
+
+            </div>
+            </div>
+          </section>    </div>
+  </main>
+</div>
+</body>
+</html>
